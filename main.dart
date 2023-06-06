@@ -19,21 +19,6 @@ class ThemeProvider with ChangeNotifier {
   }
 }
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: ThemeData.light(),
-//       debugShowCheckedModeBanner: false,
-//       initialRoute: ListRoute.routeName,
-//       routes: {
-//         ListRoute.routeName: (context) => ListRoute(),
-//         AddRoute.routeName: (context) => AddRoute(),
-//       },
-//     );
-//   }
-// }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,31 +30,10 @@ class MyApp extends StatelessWidget {
         ListRoute.routeName: (context) => ListRoute(),
         AddRoute.routeName: (context) => AddRoute(),
       },
-      home: WillPopScope(
-        onWillPop: () async {
-          return (await showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('Keluar dari aplikasi?'),
-              content: const Text('Apakah Anda ingin keluar dari aplikasi?'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: const Text('Tidak'),
-                ),
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: const Text('Ya'),
-                ),
-              ],
-            ),
-          )) ?? false;
-        },
-        child: ListRoute(),
-      ),
     );
   }
 }
+
 
 
 class Mahasiswa {
